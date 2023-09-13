@@ -33,7 +33,14 @@ def lab1():
         </div>
 
         <h1><a href="/menu" target="_blank">Меню</a></h1>
+        <h2>Реализованные роуты</h2>
 
+        <ul>
+            <li><a href="/lab1/oak" target="_blank">/lab1/oak - Дуб</a></li>
+            <li><a href="/lab1/student" target="_blank">/lab1/student - Студент</a></li>
+            <li><a href="/lab1/python" target="_blank">/lab1/python - Питон</a></li>
+            <li><a href="/lab1/lamba" target="_blank">/lab1/lamba - Ламборгини </a></li>
+        </ul>
         <footer>
             &copy; Владислав Деменев, ФБИ-13, 3 курс, 2023
         </footer>
@@ -56,14 +63,7 @@ def menu():
 
         <h2><a href="/lab1" target="_blank">Первая лабораторная</a></h2>
 
-        <h2>Реализованные роуты</h2>
-
-        <ul>
-            <li><a href="/lab1/oak" target="_blank">/lab1/oak - Дуб</a></li>
-            <li><a href="/lab1/student" target="_blank">/lab1/student - Студент</a></li>
-            <li><a href="/lab1/python" target="_blank">/lab1/python - Питон</a></li>
-            <li><a href="/lab1/lamba" target="_blank">/lab1/lamba - Ламборгини </a></li>
-        </ul>
+        
 
         <footer>
             &copy; Владислав Деменев, ФБИ-13, 3 курс, 2023
