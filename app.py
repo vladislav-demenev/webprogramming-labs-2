@@ -1,9 +1,10 @@
-from flask import Flask, redirect
+from flask import Flask, redirect, url_for
 app=Flask(__name__)
 
 @app.route("/")
 def slesh():
     return redirect('/menu', code=302)
+
 
 @app.route("/index")
 def start():
@@ -29,6 +30,7 @@ def lab1():
             Werkzeug, а также шаблонизатор Jinja2. Относится к категории так
             называемых микрофреймворков — минималистичных каркасов
             веб-приложений, сознательно предоставляющих лишь самые базовые возможности.         
+            <a href="/lab1/oak" target="_blank">Дуб</a>
         </h1>
 
         <footer>
@@ -59,3 +61,18 @@ def menu():
     </body>
 </html>
 """
+
+@app.route('/lab1/oak')
+def oak():
+    return '''
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="''' + url_for('static', filename='lab1.css') + '''">
+    </head>   
+    <body>
+        <h1><a href="/lab1" target="_blank">Дуб</a></h1>
+        <div class='photo'><img src="''' + url_for('static', filename='oak.jpg') + '''">
+        </div>    
+    </body>
+'''
