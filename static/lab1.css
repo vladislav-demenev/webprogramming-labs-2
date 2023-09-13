@@ -3,3 +3,22 @@
     margin-left: 100px;
 }
 
+header {
+    background: linear-gradient(to right,red,orange,yellow,green,lightblue,blue,purple); 
+    color:aquamarine;
+    padding: 10px; 
+    font-size: 16pt;
+    transition: 1s;
+}
+
+footer {
+    background: linear-gradient(to right,red,orange,yellow,green,lightblue,blue,purple);
+    color:aquamarine; 
+    padding: auto; 
+    font-size: 16pt; 
+    transition: 1s;
+    text-align: right;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

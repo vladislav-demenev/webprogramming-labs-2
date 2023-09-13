@@ -13,11 +13,12 @@ def start():
 
 @app.route('/lab1')
 def lab1():
-    return """
+    return '''
 <!doctype html>
 <html>
     <head>
         <title>Деменев Владислав Вячеславович, Лабораторная 1</title>
+        <link rel="stylesheet" href="''' + url_for('static', filename='lab1.css') + '''">
     </head>
     <body>
         <header>
@@ -46,15 +47,16 @@ def lab1():
         </footer>
     </body>
 </html>
-"""
+'''
 
 @app.route('/menu')
 def menu():
-    return """
+    return '''
 <!DOCTYPE html>
 <html>
     <head>
         <title>НГТУ, ФБ, Лабораторные работы</title>
+        <link rel="stylesheet" href="''' + url_for('static', filename='lab1.css') + '''">
     </head>
     <body>
         <header>
@@ -70,7 +72,7 @@ def menu():
         </footer>
     </body>
 </html>
-"""
+'''
 
 @app.route('/lab1/oak')
 def oak():
