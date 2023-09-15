@@ -22,3 +22,10 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+body {
+    background-color: lightskyblue;
+    color: maroon;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+}
