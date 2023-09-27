@@ -63,8 +63,8 @@ def menu():
             НГТУ, ФБ, WEB-программирование, часть 2. Список лабораторных
         </header>
 
-        <h2><a href="/lab1" target="_blank">Первая лабораторная</a></h2>
-
+        <h2><a href="/lab1" target="_blank">Лабороторная работа 1</a></h2>
+        <h2><a href="/lab2" target="_blank">Лабороторная работа 2</a></h2>
         
 
         <footer>
