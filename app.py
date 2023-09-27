@@ -199,7 +199,7 @@ def lamba():
 @app.route('/lab2')
 def lab2():
     return render_template('lab2.html')
-    
+
 @app.route('/lab2/example')
 def example():
     name, number, groupe, course='Владислав Деменев', 2, 'ФБИ-13', '3 курс'
@@ -224,3 +224,7 @@ def example():
         {'author': 'Габриэль Гарсиа Маркес', 'name': 'Недобрый час', 'genre': 'биография', 'pages': '3600'},
     ]
     return render_template('example.html', name=name, number=number, groupe=groupe, course=course, fruits=fruits, books=books)
+
+@app.route('/lab2/s_class')
+def s_class():
+    return render_template('s_class.html')
