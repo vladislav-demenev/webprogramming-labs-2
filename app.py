@@ -200,4 +200,7 @@ def lamba():
 @app.route('/lab2/example')
 def example():
     name='Владислав Деменев'
-    return render_template('example.html',name=name)
+    number='2'
+    groupe='ФБИ-13'
+    course='3'
+    return render_template('example.html', name=name, number=number, groupe=groupe, course=course)
