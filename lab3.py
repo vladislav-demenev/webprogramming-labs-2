@@ -48,3 +48,20 @@ def pay():
 @lab3.route('/lab3/success')
 def success():
     return render_template('success.html')
+
+
+@lab3.route('/lab3/train_ticket')
+def trail_ticket():
+    return render_template('train_ticket.html')
+
+@lab3.route('/lab3/ticket')
+def ticket():
+    passenger_name = request.args.get('passenger_name')
+    passenger_type = request.args.get('passenger_type')
+    berth_type = request.args.get('berth_type')
+    luggage = request.args.get('luggage')
+    passenger_age = request.args.get('passenger_age')
+    departure_point = request.args.get('departure_point')
+    destination = request.args.get('destination')
+    travel_date = request.args.get('travel_date')
+    return render_template('ticket.html',passenger_name=passenger_name,passenger_type=passenger_type,berth_type=berth_type,luggage=luggage,passenger_age=passenger_age,departure_point=departure_point,destination=destination,travel_date=travel_date)
