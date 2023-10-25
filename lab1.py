@@ -1,4 +1,4 @@
-from flask import Blueprint, redirect, url_for
+from flask import Blueprint, redirect, url_for, render_template
 lab1=Blueprint('lab1', __name__)
 
 @lab1.route("/")
@@ -6,6 +6,8 @@ lab1=Blueprint('lab1', __name__)
 def slesh():
     return redirect('/menu', code=302)
 
+#cmd
+#venv\Scripts\activate.bat
 
 @lab1.route('/lab1')
 def lab():
@@ -61,8 +63,9 @@ def menu():
         </header>
 
         <h2><a href="/lab1">Лабороторная работа 1</a></h2>
-        <h2><a href="/lab2"">Лабороторная работа 2</a></h2>
+        <h2><a href="/lab2">Лабороторная работа 2</a></h2>
         <h2><a href="/lab3">Лабороторная работа 3</a></h2>
+        <h2><a href="/lab4">Лабороторная работа 4</a></h2>
 
         <footer>
             &copy; Владислав Деменев, ФБИ-13, 3 курс, 2023
