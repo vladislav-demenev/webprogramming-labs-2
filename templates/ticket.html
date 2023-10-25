@@ -6,7 +6,7 @@
 <div class="railway-ticket-form">
     <h1>Ваш билет на поезд</h1>
     <p><strong>ФИО пассажира:</strong> {{ passenger_name }}</p>
-    <p><strong>Тип пассажира:</strong> {% if passenger_type == 'child' %}Детский{% else %}Взрослый{% endif %}</p>
+    <p><strong>Билет:</strong> {% if passenger_type == 'child' %}Детский{% else %}Взрослый{% endif %}</p>
     <p><strong>Тип полки:</strong> 
     {% if berth_type == 'lower' %}
         Нижняя
