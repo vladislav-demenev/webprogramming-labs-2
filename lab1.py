@@ -8,6 +8,7 @@ def slesh():
 
 #cmd
 #venv\Scripts\activate.bat
+#source ./venv/bin/activate
 
 @lab1.route('/lab1')
 def lab():
@@ -66,6 +67,7 @@ def menu():
         <h2><a href="/lab2">Лабороторная работа 2</a></h2>
         <h2><a href="/lab3">Лабороторная работа 3</a></h2>
         <h2><a href="/lab4">Лабороторная работа 4</a></h2>
+        <h2><a href="/lab5">Лабороторная работа 5</a></h2>
 
         <footer>
             &copy; Владислав Деменев, ФБИ-13, 3 курс, 2023
