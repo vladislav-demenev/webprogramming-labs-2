@@ -1,13 +1,12 @@
 {% extends "base.html" %}
 
-{% block lab %}Лабораторная работа 4{% endblock %}
+{% block lab %}Лабораторная работа 5{% endblock %}
 
 {% block main %}
 <div >
-    <h1>Вход</h1>
-    <h2>Пожалуйста, авторизируйтесь</h2>
+    <h1>Авторизация</h1>
     {% if error %}
-    <p class="error-message">{{ error }}</p>
+    <p>{{ error }}</p>
     {% endif %}
     <form method="post">
         <div>

@@ -1,4 +1,4 @@
-from flask import Blueprint, redirect, url_for, render_template
+from flask import Blueprint, redirect, url_for, render_template, session
 lab1=Blueprint('lab1', __name__)
 
 @lab1.route("/")

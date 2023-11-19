@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 5{% endblock %}
+
+{% block main %}
+<body>
+    <h1>Registration Page</h1>
+
+    {% if errors %}
+            {% for error in errors %}
+            <div><b>{{ error }}</b></div>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form method="POST" action="/lab5/register">
+        <label for="username">Username:</label>
+        <input type="text" name="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required>
+        <br>
+        <input type="submit" value="Register">
+    </form>
+</body>
+
+{% endblock %}

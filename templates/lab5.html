@@ -6,16 +6,17 @@
     <h1>База знаний</h1>
     <ol>
         <li>
-            <a href="/lab5/log">Помотреть заметки</a>
+            <a href="/lab5/view_zametka">Помотреть заметки</a>
         </li>
         <li>
-            <a href="/lab4/reg">Создать заметку</a>
+            <a href="/lab5/create_zametka">Создать заметку</a>
         </li>
         <li>
-            <a href="/lab4/ordergrain">Логин</a>
+            <a href="/lab5/login">Логин</a>
         </li>
         <li>
-            <a href="/lab4/cookies">Регистрация</a>
+            <a href="/lab5/register">Регистрация</a>
         <li>
     </ol>
+    <p>Имя пользователя: {% if user_is_authenticated %}{{ current_user.username }}{% else %}Анон{% endif %}</p>
 {% endblock %}
