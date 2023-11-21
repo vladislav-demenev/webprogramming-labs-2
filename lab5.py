@@ -181,7 +181,55 @@ def new_article():
             errors = ["Не удалось получить идентификатор новой статьи"]
             return render_template("new_article.html", errors=errors, sent=sent)
 
-@lab5.route('/lab5/add_to_favorite/<int:article_id>')
+@lab5.route("/lab5/articles/<int:article_id>")
+def getArticle(article_id):
+    userID = session.get("id")
+    # Проверяем авторизован ли пользователь
+    if userID is not None:
+        conn = dbConnect()
+        cur = conn.cursor()
+        # SQL injection example!!!!|
+        cur.execute(f"SELECT title, article_text FROM articles WHERE id = %s and user_id=%s",(article_id,userID))
+        # Возьми одну строку
+        articleBody = cur.fetchone()
+        dbClose(cur, conn)
+        if articleBody is None: 
+            return "Not found!"
+        # Разбиваем строку на массив по "Enter", чтобы
+        # с помощью цикла for в jinja разбить статью на параграфы
+        text = articleBody[1].splitlines()
+        return render_template("articleN.html", article_text=text, article_title=articleBody[0], username=session.get("username"))
+
+
+# Add this route in your Flask application file
+
+@lab5.route("/lab5/my_articles")
+def my_articles():
+    current_user = {"username": None}  # Corrected assignment
+    if 'user_id' in session:
+        user_id = session['user_id']
+
+        conn = dbConnect()
+        cur = conn.cursor()
+
+        try:
+            # Retrieve articles belonging to the logged-in user
+            cur.execute("SELECT id, title, article_text, likes FROM articles WHERE user_id = %s;", (user_id,))
+            articles = [{'id': row[0], 'title': row[1], 'article_text': row[2], 'likes': row[3]} for row in cur.fetchall()]
+
+            current_user["username"] = session.get("username")  # Set the username for the current user
+
+            return render_template("articles.html", user_is_authenticated=True, articles=articles, current_user=current_user)
+        finally:
+            dbClose(cur, conn)
+    else:
+        # If the user is not authenticated, redirect to the login page
+        return redirect('/lab5/logins')
+
+
+
+# Добавьте новый маршрут для добавления статьи в избранное
+@lab5.route('/lab5/articles/<int:article_id>/add_to_favorite')
 def add_to_favorite(article_id):
     if 'user_id' not in session:
         return redirect('/lab5/logins')
@@ -197,8 +245,10 @@ def add_to_favorite(article_id):
     finally:
         dbClose(cur, conn)
 
-    return redirect('/lab5')
+    return redirect('/lab5/my_articles')  # Перенаправьте на страницу с избранными статьями
 
+
+# Добавьте новый маршрут для лайка статьи
 @lab5.route('/lab5/like_article/<int:article_id>')
 def like_article(article_id):
     if 'user_id' not in session:
@@ -215,4 +265,4 @@ def like_article(article_id):
     finally:
         dbClose(cur, conn)
 
-    return redirect('/lab5')
+    return redirect('/lab5')  # Перенаправьте на главную страницу или куда-то еще
