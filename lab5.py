@@ -42,7 +42,6 @@ def main():
 
     return render_template("lab5.html", user_is_authenticated=user_is_authenticated, current_user=current_user)
 
-# Маршрут для вывода имен пользователей в HTML
 @lab5.route("/lab5/users")
 def show_users():
     conn = dbConnect()
@@ -247,7 +246,8 @@ def add_to_favorite(article_id):
     return redirect('/lab5/my_articles')  # Перенаправьте на страницу с избранными статьями
 
 # Добавьте новый маршрут для лайка статьи
-@lab5.route('/lab5/like_article/<int:article_id>')
+# Ваш текущий маршрут
+@lab5.route('/lab5/like_article/<int:article_id>', methods=["POST"])
 def like_article(article_id):
     if 'user_id' not in session:
         return redirect('/lab5/logins')
@@ -260,7 +260,11 @@ def like_article(article_id):
     try:
         cur.execute("UPDATE articles SET likes = likes + 1 WHERE id = %s;", (article_id,))
         conn.commit()
+
+        # Получите обновленное количество лайков
+        cur.execute("SELECT likes FROM articles WHERE id = %s;", (article_id,))
+        likes_count = cur.fetchone()[0]
+
+        return redirect('/lab5/my_articles')  # Перенаправление на главную страницу или куда-то еще после лайка
     finally:
         dbClose(cur, conn)
-
-    return redirect('/lab5')
