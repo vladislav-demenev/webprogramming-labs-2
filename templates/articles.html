@@ -1,4 +1,3 @@
-<!-- Ваш полный код с поправками -->
 {% extends "base.html" %}
 
 {% block lab %}Лабораторная работа 5{% endblock %}
@@ -13,9 +12,7 @@
                         <tr>
                             <th>Заголовок статьи</th>
                             <th>Ссылка на статью</th>
-                            <th>Лайки</th>
                             <th>Добавить в избранное</th>
-                            <th>Поставить лайк</th> <!-- Добавлено -->
                         </tr>
                     </thead>
                     <tbody>
@@ -23,9 +20,7 @@
                             <tr>
                                 <td>{{ article.title }}</td>
                                 <td><a href="{{ url_for('lab5.getArticle', article_id=article.id) }}">Посмотреть статью</a></td>
-                                <td>{% if article.likes is not none %}{{ article.likes }}{% else %}0{% endif %}</td>
                                 <td><a href="{{ url_for('lab5.add_to_favorite', article_id=article.id) }}">Добавить в избранное</a></td>
-                                <td><form action="/lab5/like_article/{{ article.id }}" method="post"><button type="submit">Лайк</button></form></td>
                             </tr>
                         {% endfor %}
                     </tbody>

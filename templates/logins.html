@@ -4,7 +4,7 @@
 
 {% block main %}
  <body>
-     <h1>Логин</h1>
+     <h1>Авторизация</h1>
      <form method="post" action="/lab5/logins">
          <label for="username">Имя пользователя:</label>
          <input type="text" id="username" name="username" required>
@@ -19,10 +19,8 @@
      {% endif %}
      <br>
      <p>Нет аккаунта? <a href="{{ url_for('lab5.registerPage') }}">Регистрация</a></p>
-     <div>
-         <a href="/lab5">
-             <button >Вернуться назад</button>
-         </a>
-         </div>
+    <a href="/lab5">
+        <button >Вернуться назад</button>
+    </a>
  </body>
  {% endblock %}

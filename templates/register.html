@@ -4,7 +4,7 @@
 
 {% block main %}
 <body>
-    <h1>Registration Page</h1>
+    <h1>Страница регистрации</h1>
 
     {% if errors %}
             {% for error in errors %}
@@ -14,14 +14,15 @@
     {% endif %}
 
     <form method="POST" action="/lab5/register">
-        <label for="username">Username:</label>
+        <label for="username">Логин:</label>
         <input type="text" name="username" required>
         <br>
-        <label for="password">Password:</label>
+        <label for="password">Пароль:</label>
         <input type="password" name="password" required>
         <br>
-        <input type="submit" value="Register">
+        <input type="submit" value="Зарегистрироваться">
     </form>
+    <br>
     <a href="/lab5">
         <button >Вернуться назад</button>
     </a>
