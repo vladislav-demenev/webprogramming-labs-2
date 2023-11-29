@@ -20,6 +20,6 @@
     </ol>
     <p>Добро пожаловать, {{ current_user.username }}!</p>
     {% if user_is_authenticated %}
-        <a href="{{ url_for('lab6.logout') }}">Выход</a>
+        <a href="{{ url_for('lab6.logout') }}"><button >Выход</button></a>
     {% endif %}
 {% endblock %}
