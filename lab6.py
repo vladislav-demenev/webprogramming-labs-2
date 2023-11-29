@@ -8,13 +8,16 @@ lab6 = Blueprint("lab6", __name__)
 
 @lab6.route("/lab6")
 def main():
-    user_is_authenticated = 'user_id' in session
-    current_user_info = {"username": "Гость"}
+    user_is_authenticated = current_user.is_authenticated
 
     if user_is_authenticated:
-        current_user_info["username"] = session["username"]
+        # Если пользователь аутентифицирован, установить его имя пользователя
+        current_username = current_user.username
+    else:
+        current_username = "Аноним"
 
-    return render_template("lab6.html", user_is_authenticated=user_is_authenticated, current_user=current_user_info)
+    return render_template("lab6.html", user_is_authenticated=user_is_authenticated, current_user={"username": current_username})
+
 
 @lab6.route("/lab6/check")
 def main1():
@@ -129,4 +132,3 @@ def create_article():
 
     # Ваш текущий код для GET-запроса остается здесь
     return render_template("new_article2.html")
-

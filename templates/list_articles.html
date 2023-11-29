@@ -5,7 +5,7 @@
 {% block main %}
 
 <body>
-    <h1>Список статей</h1>
+    <h1>Список статей пользователя "{{  current_user.username }}" </h1>
     <ul>
         {% for article in articles %}
     <li>
@@ -15,6 +15,7 @@
     </li>
 {% endfor %}
     </ul>
+    <a href="/lab6">Вернуться назад</a>
 </body>
 
 {% endblock %}
