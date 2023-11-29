@@ -3,25 +3,30 @@
 {% block lab %}Лабораторная работа 5{% endblock %}
 
 {% block main %}
-    <h1>База знаний</h1>
-    <ol>
-        <li>
-            <a href="/lab5/my_articles">Посмотреть заметки</a>
-        </li>
-        <li>
-            <a href="/lab5/new_article">Создать заметку</a>
-        </li>
-        <li>
-            <a href="/lab5/logins">Логин</a>
-        </li>
-        <li>
-            <a href="/lab5/register">Регистрация</a>
-        </li>
-    </ol>
-    {% if user_is_authenticated %}
-    <p>Добро пожаловать, {{ current_user.username }}!</p>
-    <a href="{{ url_for('lab5.logout') }}">Выход</a>
-{% else %}
-    <p>Добро пожаловать, Гость!</p>
-{% endif %}
+
+<body>
+    <div class="knowledge-base-container">
+        <h1>База знаний</h1>
+        <ol>
+            <li>
+                <a href="/lab5/my_articles">Посмотреть заметки</a>
+            </li>
+            <li>
+                <a href="/lab5/new_article">Создать заметку</a>
+            </li>
+            <li>
+                <a href="/lab5/logins">Логин</a>
+            </li>
+            <li>
+                <a href="/lab5/register">Регистрация</a>
+            </li>
+        </ol>
+        {% if user_is_authenticated %}
+            <p>Добро пожаловать, {{ current_user.username }}!</p>
+            <a href="{{ url_for('lab5.logout') }}">Выход</a>
+        {% else %}
+            <p>Добро пожаловать, Гость!</p>
+        {% endif %}
+    </div>
+</body>
 {% endblock %}

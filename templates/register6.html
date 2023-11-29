@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block lab %} Лабораторная работа 6{% endblock %}
+
+{% block main %}
+<link rel="stylesheet" href="{{ url_for('static', filename='lab5.css')}}">
+<div>
+    <div>
+      <form method="post">
+        <h1>Регистрация пользователя!</h1>
+
+        {% for error in errors %}
+                {{ error }}
+              {% endfor %}
+
+        <div>
+          <input class="pole" type="text" name="username" placeholder="Логин">
+        </div>
+
+        <div>
+          <input class="pole" type="password" name="password" placeholder="Пароль">
+        </div>
+
+      <button type="submit">Зарегистрироваться</button>
+    </form>
+    <a href="/lab6">
+            <button >Вернуться назад</button>
+        </a>
+  </div>
+</div>
+{% endblock %}

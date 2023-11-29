@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 6{% endblock %}
+
+{% block main %}
+    <h1>База знаний</h1>
+    <ol>
+        <li>
+            <a href="/lab6/articles">Посмотреть заметки</a>
+        </li>
+        <li>
+            <a href="/lab6/new_article">Создать заметку</a>
+        </li>
+        <li>
+            <a href="/lab6/login">Логин</a>
+        </li>
+        <li>
+            <a href="/lab6/register">Регистрация</a>
+        </li>    
+    </ol>
+    <a href="{{ url_for('lab6.logout') }}">Выход</a>
+
+{% endblock %}

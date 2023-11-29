@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 6{% endblock %}
+
+{% block main %}
+
+<div class="new-note-container">
+    <h1>Новая заметка</h1>
+    {% if sent %}
+        <p class="success-message">Отправлено!</p>
+    {% endif %}
+    {% if error %}
+        <p class="error-message">{{ error }}</p>
+    {% endif %}
+    <form method="POST" action="{{ url_for('lab6.create_article') }}">
+        <div><label for="title">Название статьи:</label></div>
+        <div><input name='title_article' type='text' placeholder="Введите название" required></div>
+        <div><label for="text">Текст статьи:</label></div>
+        <div><textarea name="text_article" placeholder="Введите текст" rows="20" required></textarea></div>
+        <div><input type="submit" value="Применить"></div>
+    </form>
+</div>
+<div class="back-link">
+    <p><a href="/lab6">Вернуться назад</a></p>
+</div>
+{% endblock %}
