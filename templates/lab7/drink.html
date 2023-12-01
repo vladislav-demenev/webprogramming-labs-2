@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block lab %}Лабораторная работа №7{% endblock }
+
+{% block script %}
+<script src="{{ url_fot('static', filename='lab7/drink.js') }}"></script>
+{% endblock %}
+
+{% block main %}
+    <h1>Заказ напитка</h1>
+    <div>Напиток:</div>
+    <label>
+        <input type="radio" value="coffee" name = "drink" checked>Кофе
+    </label>
+    <label>
+        <input type="radio" value="black-tea" name = "drink" checked>Черный чай
+    </label>
+    <label>
+        <input type="radio" value="green-tea" name = "drink" checked>Зеленый чай
+    </label>
+
+    <div>Добавки:</div>
+    <label>
+        <input type="checkbox" name = "milk" checked>Молоко
+    </label>
+    <label>
+        <input type="checkbox" name = "sugar" checked>Сахар
+    </label>
+
+    <div>
+        <button onclick="getPrice()">Рассчитать цену</button>
+    </div>
+
+    <div id="price"></div>
+
+    <div>
+        <button type="button">Заказать</button>
+    </div>
+
+
+
+{% endblock %}
