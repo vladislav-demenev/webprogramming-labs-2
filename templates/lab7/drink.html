@@ -1,41 +1,64 @@
-{% extends "base.html" %}
-{% block lab %}Лабораторная работа 7{% endblock%}
+{%extends "base.html"%}
+
+{% block lab %}
+    Лабораторная работа 7
+{% endblock %}
 
 {% block script %}
-<script src="{{ url_for('static', filename='lab7/drink.js') }}"></script>
+    <script src="{{url_for('static', filename='lab7/drink.js')}}"></script>
 {% endblock %}
 
 {% block main %}
     <h1>Заказ напитка</h1>
+
     <div>Напиток:</div>
+
     <label>
-        <input type="radio" value="coffee" name = "drink" checked>Кофе
+        <input type="radio" value="coffee" name="drink" checked>Кофе
     </label>
     <label>
-        <input type="radio" value="black-tea" name = "drink" checked>Черный чай
+        <input type="radio" value="black-tea" name="drink">Черный чай
     </label>
     <label>
-        <input type="radio" value="green-tea" name = "drink" checked>Зеленый чай
+        <input type="radio" value="green-tea" name="drink" checked>Зеленый чай
     </label>
 
     <div>Добавки:</div>
+
     <label>
-        <input type="checkbox" name = "milk" checked>Молоко
+        <input type="checkbox" name="milk">молоко
     </label>
     <label>
-        <input type="checkbox" name = "sugar" checked>Сахар
+        <input type="checkbox" name="sugar">сахар
     </label>
 
     <div>
-        <button onclick="getPrice()">Рассчитать цену</button>
+        <button onclick="get_price()">Заказать</button>
     </div>
 
     <div id="price"></div>
 
-    <div>
-        <button type="button">Заказать</button>
+    <div id="pay" style="display: none;">
+        <div>Номер банковской карты:</div>
+        <label>
+            <input type="text" name="card">
+        </label>
+
+        <div>Имя держателя карты:</div>
+        <label>
+            <input type="text" name="name">
+        </label>
+
+        <div>Номер CVV:</div>
+        <label>
+            <input type="text" name="cvv" size="3">
+        </label>
+
+        <div>
+            <button onclick="pay()">Оплатить</button>
+        </div>
+        <div>
+            <button id="refund" onclick="refund()" style="display: none;">Отменить оплату</button>
+        </div>
     </div>
-
-
-
 {% endblock %}
