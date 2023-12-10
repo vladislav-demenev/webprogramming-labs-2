@@ -22,7 +22,7 @@ def api():
    if data['method'] == 'get-price':
        return get_price(data['params'])
 
-   # Обработка запроса 'pay'
+   # Обработка запроса 'pay'/
    if data['method'] == 'pay':
        return pay(data['params'])
 
