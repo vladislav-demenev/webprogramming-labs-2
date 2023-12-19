@@ -10,3 +10,8 @@ def main():
 @lab9.app_errorhandler(404)
 def not_found(e):
     return 'Нет такой страницы, вернуться обратно <a href="/menu">Меню</a> ❄️❄️❄️', 404
+
+
+@lab9.route('/lab9/500')
+def main1():
+    return render_template('lab9/500.html'), 500
