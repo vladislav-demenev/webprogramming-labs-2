@@ -3,10 +3,6 @@ lab1=Blueprint('lab1', __name__)
 
 @lab1.route("/")
 
-@lab1.app_errorhandler(404)
-def not_found(e):
-    return 'Нет такой страницы', 404
-
 @lab1.route("/index")
 def slesh():
     return redirect('/menu', code=302)
