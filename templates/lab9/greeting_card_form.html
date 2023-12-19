@@ -1,0 +1,26 @@
+{%extends "base.html"%}
+
+{% block lab %}
+    Лабораторная работа 9
+{% endblock %}
+
+{% block main %}
+<body>
+    <h2>Форма поздравления</h2>
+    <form method="post" action="/lab9/greeting_card">
+        ❄️❄️❄️<label for="recipient_name">Имя получателя:</label>
+        <input type="text" id="recipient_name" name="recipient_name" required>❄️❄️❄️<br>
+
+        ❄️❄️❄️<label for="recipient_gender">Пол получателя:</label>
+        <select id="recipient_gender" name="recipient_gender" required>
+            <option value="male">Мужской</option>
+            <option value="female">Женский</option>
+        </select>❄️❄️❄️<br>
+
+        ❄️❄️❄️<label for="sender_name">Имя отправителя:</label>
+        <input type="text" id="sender_name" name="sender_name" required>❄️❄️❄️<br>
+
+        ❄️❄️❄️<input type="submit" value="Создать открытку">❄️❄️❄️
+    </form>
+</body>
+{% endblock %}
